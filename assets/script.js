@@ -18,79 +18,79 @@ const slides = [
   },
 ];
 
-// Sélection de l'ID banner pour afficher la diapotive
+// Selecting the banner ID to display the slide
 const banner = document.getElementById("banner");
 
-// Sélection de la class banner image pour afficher la diapotive
+// Selecting the class banner image to display the slide
 const image = document.querySelector(".banner-img");
 
-// Sélection de la class dots pour afficher la diapotive
+// Point class selection
 const dots = document.querySelectorAll(".dots .dot");
 
-//initialisation du compteur à zéro dans l'index avec la variable currenceIndex
+//initializing the counter to zero in the index with the currenceIndex variable
 let dotSelecred = 0;
 
-//Création tableau bullet point
+//Create a bulleted array
 const nbDots = dots.length;
 
-// Sélection du selecteur P  pour afficher la diapotive
+// Selecting the P selector
 const paragraph = document.querySelector("#banner p");
 
-//initialisation du compteur à zéro dans l'index avec la variable currenceIndex
+//initializing the counter to zero in the index with the currenceIndex variable
 let currentIndex = 0;
 
-// Fonction pour afficher les image et tagline dans l'index
+//Function to display images and taglines in the index
 function showSlide(index) {
   const slide = slides[index];
   image.src = `./assets/images/slideshow/${slide.image}`;
   paragraph.innerHTML = slide.tagLine;
 }
 
-// Sélection de la fleche de gauche
+// Left arrow selection
 const arrow_left = document.querySelector(".arrow_left");
 
-// Sélection de la fleche de droite
+// Right arrow selection
 const arrow_right = document.querySelector(".arrow_right");
 
-// Ajout click fléche de gauche de la souris
+// Add left mouse click
 arrow_left.addEventListener("click", function (e) {
-  //Fonction défilement des images
+  //Image scrolling function
   currentIndex = currentIndex - 1;
   if (currentIndex < 0) {
     currentIndex = slides.length - 1;
   }
   showSlide(currentIndex);
 
-  // Fonction d'affichage des bullets points
-  // j'enleve la class dot_selected sur le bullet point de la classe dot précedente
+  // Bullet display function
+  // I remove the dot_selected class on the chip from the previous dot class
   dots[dotSelecred].classList.remove("dot_selected");
   dotSelecred -= 1;
   if (dotSelecred < 0) {
     dotSelecred = dots.length - 1;
   }
-  //j'ajoute la class dot_selected sur le bullet point de la classe dot suivente
+  //I add the dot_selected class on the following dot class chip
   dots[dotSelecred].classList.add("dot_selected");
   console.log(dotSelecred);
 });
 
-// Ajout click fléche de droite de la souris
+// Adding Right Mouse Click
 arrow_right.addEventListener("click", function (e) {
-  //Fonction défilement des images
+  //Image scrolling function
   currentIndex = currentIndex + 1;
   if (currentIndex >= slides.length) {
     currentIndex = 0;
   }
   showSlide(currentIndex);
 
-  // Fonction d'affichage des bullets points
-  // J'enleve la classe dot_selected sur le bullet point de la classe dot précedente
+  // Bullet display function
+  // I remove the dot_selected class on the chip from the previous dot class
   dots[dotSelecred].classList.remove("dot_selected");
   dotSelecred += 1;
   if (dotSelecred >= dots.length) {
     dotSelecred = 0;
   }
 
-  //J'ajoute la classe dot_selected sur le bullet point de la classe dot suivente
+  //I add the dot_selected class on the following dot class chip
   dots[dotSelecred].classList.add("dot_selected");
   console.log(dotSelecred);
 });

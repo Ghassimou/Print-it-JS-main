@@ -1,0 +1,16 @@
+{
+  "name": "print-it-js-main",
+  "version": "1.0.0",
+  "description": "Mon projet JavaScript pour l'impression",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Barry",
+  "license": "ISC",
+  "keywords": [
+    "JavaScript",
+    "impression",
+    "projet"
+  ]
+}

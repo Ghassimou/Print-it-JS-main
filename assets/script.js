@@ -28,7 +28,7 @@ const image = document.querySelector(".banner-img");
 const dots = document.querySelectorAll(".dots .dot");
 
 //initializing the counter to zero in the index with the currenceIndex variable
-let dotSelecred = 0;
+let selectedDot = 0;
 
 //Create a bulleted array
 const nbDots = dots.length;
@@ -63,14 +63,13 @@ arrow_left.addEventListener("click", function (e) {
 
   // Bullet display function
   // I remove the dot_selected class on the chip from the previous dot class
-  dots[dotSelecred].classList.remove("dot_selected");
-  dotSelecred -= 1;
-  if (dotSelecred < 0) {
-    dotSelecred = dots.length - 1;
+  dots[selectedDot].classList.remove("dot_selected");
+  selectedDot -= 1;
+  if (selectedDot < 0) {
+    selectedDot = dots.length - 1;
   }
   //I add the dot_selected class on the following dot class chip
-  dots[dotSelecred].classList.add("dot_selected");
-  console.log(dotSelecred);
+  dots[selectedDot].classList.add("dot_selected");
 });
 
 // Adding Right Mouse Click
@@ -84,13 +83,12 @@ arrow_right.addEventListener("click", function (e) {
 
   // Bullet display function
   // I remove the dot_selected class on the chip from the previous dot class
-  dots[dotSelecred].classList.remove("dot_selected");
-  dotSelecred += 1;
-  if (dotSelecred >= dots.length) {
-    dotSelecred = 0;
+  dots[selectedDot].classList.remove("dot_selected");
+  selectedDot += 1;
+  if (selectedDot >= dots.length) {
+    selectedDot = 0;
   }
 
   //I add the dot_selected class on the following dot class chip
-  dots[dotSelecred].classList.add("dot_selected");
-  console.log(dotSelecred);
+  dots[selectedDot].classList.add("dot_selected");
 });
